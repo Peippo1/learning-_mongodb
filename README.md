@@ -1,2 +1,2 @@
-# learning-_mongodb
+# learning_mongodb
 introduction to mongodb
