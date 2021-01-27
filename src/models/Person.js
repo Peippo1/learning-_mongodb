@@ -1,20 +1,27 @@
 const mongoose = require("mongoose");
+const validator = require("validator");
 
-// creatig a schema
+// creating a schema
 
 const personSchema = new mongoose.Schema({
     name: {
-        type: String
+        type: String,
     },
     email: {
-      type: String
+      type: String,
+      required: true,
+      validate (value) {
+        if (!validator.isEmail(value)) {
+            throw new Error("Invalid Email")  
+      } 
     },
-    age: {
-        type: Number
-    },
+},
+age: {
+    type: Number,
+  },
 });
 // model for schema
-const Person = mongoose.model("person", personSchema);
+const Person = mongoose.model("Person", personSchema);
 
 // exporting the schema
 module.exports = {

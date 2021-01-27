@@ -1,6 +1,6 @@
 // const { MongoClient }= require("mongodb");
 const { mongoose } = require("mongoose");
-require("dotnv").config();
+// require("dotnv").config();
 
 const connection = async () => {
 // asynchronous function to contain mongodb call and awaiting connection

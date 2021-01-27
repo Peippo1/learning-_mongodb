@@ -1,40 +1,23 @@
 const mongoose = require("mongoose");
-const { default: validator } = require("validator");
+// creating a schema
 
-// creatig a schema
+const taskSchema = new mongoose.Schema({
+  task: {
+    type: String,
+    required: true,
+  },
 
-const TaskSchema = new mongoose.Schema({
-    name: {
-        type: String,
-        required: true
-    },
-
-    age: {
-        type: Number,
-        required: true
-    },
-    email: {
-      type: String,
-      required: true,
-      validate(value) {
-      if (!validator.isEmail(value)) {
-          throw new Error("Invalid Email")
-      }
-    //   an if statement to validate 
-        }
-    },
+ completed: {
+     type: Boolean,
+     required: true,
+ },
 });
-await Task.save();
 
-app();
-// model for schema
-const Task = mongoose.model("Task", TaskSchema);
-
-
+const Task = mongoose.model("Task", taskSchema);
 
 // exporting the schema
 module.exports = {
-    Task,
+  Task,
 };
 
 // node ./models/Task.js
