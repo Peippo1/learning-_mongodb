@@ -12,9 +12,6 @@ const personSchema = new mongoose.Schema({
     age: {
         type: Number
     },
-    likesPizza: {
-        type: Boolean,
-    },
 });
 // model for schema
 const Person = mongoose.model("person", personSchema);
